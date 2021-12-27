@@ -1,7 +1,6 @@
 // import {mark} from "regenerator-runtime";
 import icons from "url:../../img/icons.svg";
 import {Fraction} from "fractional";
-console.log(Fraction);
 
 class recipeView {
   #parentElement = document.querySelector(".recipe");
