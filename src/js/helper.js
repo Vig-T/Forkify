@@ -1,4 +1,4 @@
-import {TIME_SEC} from "./config";
+import {TIMEOUT_SEC} from "./config";
 
 // Contain functions tht we reuse in entire project
 const timeout = function (s) {

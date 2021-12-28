@@ -1,8 +1,9 @@
 import * as model from "../js/model.js";
-import recipeView from "./views/reciepeView.js";
+import recipeView from "./views/recipeView.js";
 
 import "core-js/stable";
 import "regenerator-runtime/runtime";
+import reciepeview from "./views/recipeView.js";
 
 const recipeContainer = document.querySelector(".recipe");
 
@@ -27,9 +28,7 @@ const controlReciepe = async function () {
   }
 };
 
-// whenever the hashchanges run the reciepe function
-["HashChange", "load"].forEach((ev) =>
-  window.addEventListener(ev, controlReciepe)
-);
-// window.addEventListener("hashchange", controlReciepe);
-// window.addEventListener("load", controlReciepe);
+const init = function () {
+  recipeView.addRenderHandler(controlReciepe);
+};
+init();

@@ -8,11 +8,9 @@ class recipeView {
   // rendering the data
   render(data) {
     this.#data = data;
-    console.log(data);
     const markUp = this.#generateMarkup();
     this.#clear();
     this.#parentElement.insertAdjacentHTML("afterbegin", markUp);
-    console.log(this.#data.ingredients);
   }
   #clear() {
     this.#parentElement.innerHTML = "";
@@ -27,10 +25,17 @@ class recipeView {
     this.#parentElement.innerHTML = " ";
     this.#parentElement.insertAdjacentHTML("afterbegin", markUp);
   };
+  addRenderHandler(handler) {
+    // whenever the hashchanges run the reciepe function
+    ["hashchange", "load"].forEach((ev) =>
+      window.addEventListener(ev, handler)
+    );
+    // window.addEventListener("hashchange", controlReciepe);
+    // window.addEventListener("load", controlReciepe);
+  }
 
   // Generting the markup
   #generateMarkup() {
-    console.log(this.#data);
     return `
         <figure class="recipe__fig">
           <img src="${this.#data.image}" alt="${
